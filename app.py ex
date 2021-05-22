@@ -1,0 +1,8 @@
+@app.route('/events')         
+def events(): 
+    greeting = "Welcome"
+    intro = "*insert website name* displays info about natural events on Earth!"
+    response = requests.get("https://eonet.sci.gsfc.nasa.gov/api/v2.1/events")
+    data= response.json()
+    print(data)
+    return render_template('events.html', data=data, greeting=greeting, intro = intro)
