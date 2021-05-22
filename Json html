@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>GO CRAZZYY AHHH GO STUPID</title>
+<link rel="stylesheet" href="static/space.css">
+
+
+<body>
+
+    <div class="bg-image"></div>
+
+
+    <h1>{{greeting}}!</h1>
+    <h2> {{intro}} </h2>
+<div class="objects">
+    {% for event in data["events"] %}
+    <div class="data">
+
+    <p> {{ event['description'] }}</p>
+    
+    <p id="title"> Title: {{event["title"]}} </p>
+
+    <p> Type of Event: {{event["categories"][0]["title"]}} </p>
+
+{% if event["geometries"]|length >= 0 %}
+
+<p> Coordinates:{{event["geometries"][0]["coordinates"]}} </p>			
+{% else %}
+  <p>No coordinates found</p>
+
+{% endif %}
+</div>
+
+
+    {% endfor %}
+    </div>
+
+
+
+</body>
